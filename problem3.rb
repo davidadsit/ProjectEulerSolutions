@@ -12,12 +12,16 @@ class Problem3
     factors
   end
 
-  def solve(numberToFactorize)
-    factors = factorize(numberToFactorize)
+  def prime_factorization(factors)
     primeFactors = []
     factors.each do |x|
       primeFactors.push(x) unless factorize(x).length > 0
     end
+    primeFactors
+  end
+
+  def solve(numberToFactorize)
+    primeFactors = prime_factorization(factorize(numberToFactorize))
     primeFactors[primeFactors.length - 1].to_s + " all prime factors: " + primeFactors.inspect
   end
 end
